@@ -1,67 +1,83 @@
 function getNeighbors(row, col, matrix) {
+  let neigbors = [];
   // Check top
+  if (row > 0 && matrix[row - 1][col] === 1) neigbors.push([row -1, col])
   // Check top right
+  if (row > 0 && col < matrix[row].length - 1 && matrix[row - 1][col + 1] === 1) neigbors.push([row - 1, col + 1])
   // Check right
+  if (col < matrix[row].length -1 && matrix[row][col + 1] === 1) neigbors.push([row, col + 1])
   // Check bottom right
+  if (row < matrix.length - 1 && col < matrix[row].length - 1 && matrix[row + 1][col + 1] === 1) neigbors.push([row + 1, col + 1])
   // Check bottom
+  if (row < matrix.length - 1 && matrix[row + 1][col] === 1) neigbors.push([row + 1, col])
   // Check bottom left
+  if (row < matrix.length - 1 && col > 0 && matrix[row + 1][col - 1] === 1) neigbors.push([row + 1, col - 1])
   // Check left
+  if (col > 0 && matrix[row][col - 1] === 1) neigbors.push([row, col - 1])
   // Check top left
+  if ( row > 0 && col > 0 && matrix[row - 1][col - 1] === 1) neigbors.push([row - 1, col - 1])
   // Return neighbors
+  return neigbors;
   // Your code here
-  let neighbors = [];
+  
+  // //UP
+  // if (row > 0 && matrix[row - 1][col] === 1) {
+  //   neighbors.push([row - 1, col]);
+  // }
+  // //BOTTOM
+  // if (row < matrix.length - 1 && matrix[row + 1][col] === 1) {
+  //   neighbors.push([row + 1, col]);
+  // }
 
-  //UP
-  if (row - 1 >= 0 && matrix[row - 1][col] === 1) {
-    neighbors.push([row - 1, col]);
-  }
+  // //LEFT
+  // if (col > 0 && matrix[row][col - 1] === 1) {
+  //   neighbors.push([row, col - 1]);
+  // }
 
-  //BOTTOM
-  if (row < matrix[row].length - 1 && matrix[row + 1][col] === 1) {
-    neighbors.push([row + 1, col]);
-  }
+  // //RIGHT
+  // if (col < matrix[row].length - 1 && matrix[row][col + 1] === 1) {
+  //   neighbors.push([row, col + 1]);
+  // }
 
-  //LEFT
-  if (col > 0 && matrix[row][col - 1] === 1) {
-    neighbors.push([row, col - 1]);
-  }
+  // //UPPER RIGHT
+  // if (
+  //   row > 0 &&
+  //   col < matrix[row].length - 1 &&
+  //   matrix[row - 1][col + 1] === 1
+  // ) {
+  //   neighbors.push([row - 1, col + 1]);
+  // }
 
-  //RIGHT
-  if (col <= matrix[row].length - 1 && matrix[row][col + 1] === 1) {
-    neighbors.push([row, col + 1]);
-  }
+  // //UPPER LEFT
+  // if (row > 0 && col > 0 && matrix[row - 1][col - 1] === 1) {
+  //   neighbors.push([row - 1, col - 1]);
+  // }
 
-  //UPPER RIGHT
-  if (
-    row > 0 &&
-    col < matrix[row].length - 1 &&
-    matrix[row - 1][col + 1] === 1
-  ) {
-    neighbors.push([row - 1, col + 1]);
-  }
+  // //BOTTOM RIGHT
 
-  //UPPER LEFT
-  if (row > 0 && col > 0 && matrix[row - 1][col - 1] === 1) {
-    neighbors.push([row - 1, col - 1]);
-  }
+  // if (
+  //   row < matrix.length - 1 &&
+  //   col < matrix[row].length - 1 &&
+  //   matrix[row + 1][col + 1] === 1
+  // ) {
+  //   neighbors.push([row + 1, col + 1]);
+  // }
 
-  //BOTTOM RIGHT
+  // //BOTTOM LEFT
+  // if (row < matrix.length - 1 && col > 0 && matrix[row + 1][col - 1] === 1) {
+  //   neighbors.push(matrix[row + 1 , col - 1]);
+  // }
 
-  if (
-    row < matrix[row].length - 1 &&
-    col < matrix[row].length - 1 &&
-    matrix[row + 1][col + 1] === 1
-  ) {
-    neighbors.push([row + 1, col + 1]);
-  }
-
-  //BOTTOM LEFT
-  if (row < matrix.length - 1 && col > 0 && matrix[row + 1][col - 1]) {
-    neighbors.push(matrix[row + 1][col - 1]);
-  }
-
-  return neighbors;
+  // return neighbors;
 }
+
+/* matrix3 = [
+  [0,0,1,0,0,1,1],
+  [1,1,0,0,1,0,1],
+  [0,0,0,1,0,0,1],
+  [1,0,1,0,0,1,1],
+]
+*/
 
 function countIslands(matrix) {
   // Create a visited set to store visited nodes
